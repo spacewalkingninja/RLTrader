@@ -39,7 +39,7 @@ def buy_and_hodl(prices, initial_balance, commission):
 
 
 def rsi_divergence(prices, initial_balance, commission, period=3):
-    rsi = ta.rsi(prices)
+    rsi = ta.momentum.rsi(prices)
 
     def signal_fn(i):
         if i >= period:
@@ -57,7 +57,7 @@ def rsi_divergence(prices, initial_balance, commission, period=3):
 
 
 def sma_crossover(prices, initial_balance, commission):
-    macd = ta.macd(prices)
+    macd = ta.trend.macd(prices)
 
     def signal_fn(i):
         if macd[i] > 0 and macd[i - 1] <= 0:

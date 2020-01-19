@@ -19,7 +19,7 @@ class BitcoinTradingGraph:
     def __init__(self, df):
         self.df = df
         self.df['Time'] = self.df['Date'].apply(
-            lambda x: datetime.strptime(x, '%Y-%m-%d %I-%p'))
+            lambda x: datetime.strptime(x, '%Y-%m-%d %H:%M:%S'))
         self.df = self.df.sort_values('Time')
 
         # Create a figure on screen and set the title
